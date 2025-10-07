@@ -7,6 +7,11 @@ void addStudent(Student students[], int *count) {
     printf("Enter roll number: ");
     students[*count].roll = getIntInput();
 
+    if (!isValidRoll(students[*count].roll)) {
+        printf("Invalid roll number!\n");
+        return;
+    }
+
     printf("Enter name: ");
     getStringInput(students[*count].name, 50);
 
@@ -58,10 +63,15 @@ void updateStudent(Student students[], int count, int roll) {
     printf("Student with roll %d not found.\n", roll);
 }
 
+int isValidRoll(int roll) {
+    return roll > 0;
+}
+
 char calculateGrade(float marks) {
-    if (marks >= 90) return 'A';
-    else if (marks >= 75) return 'B';
-    else if (marks >= 60) return 'C';
-    else if (marks >= 45) return 'D';
+    if (marks >= 80) return 'A';
+    else if (marks >= 65) return 'B';
+    else if (marks >= 50) return 'C';
+    else if (marks >= 35) return 'D';
     else return 'F';
+
 }
