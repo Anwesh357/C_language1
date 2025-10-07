@@ -27,12 +27,18 @@ int main() {
             case 3:
                 printf("Enter roll number to search: ");
                 roll = getIntInput();
-                searchStudent(students, count, roll);
+                if (isValidRoll(roll))
+                    searchStudent(students, count, roll);
+                else
+                    printf("nvalid roll number!\n");
                 break;
             case 4:
                 printf("Enter roll number to update: ");
                 roll = getIntInput();
-                updateStudent(students, count, roll);
+               if (isValidRoll(roll))
+                    updateStudent(students, count, roll);
+                else
+                    printf("Invalid roll number!\n");
                 break;
             case 5:
                 printf("Exiting program...\n");
@@ -41,4 +47,5 @@ int main() {
                 printf("Invalid choice! Try again.\n");
         }
     }
+
 }
